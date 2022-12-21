@@ -730,6 +730,10 @@ fi
 sed "s/\"livereload\"/\"-livereload\"/" <book.json >tmp && mv -f tmp book.json && cat book.json
 print_info "Disable livereload.js online!"
 
+#installing missing plugins
+print_info "Installing missing plugins"
+gitbook install
+
 gitbook build --gitbook=${GITBOOK_BUILD_VERSION}
 if [ $? -eq 0 ]; then
   print_info "Message:gitbook built success"
